@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateHub | The Home of Innovation</title>
+    <title>InnovateHub | Driving Digital Transformation</title>
     <!-- Import a modern font from Google Fonts -->
     <link href="fonts.googleapis.com" rel="stylesheet">
     
-    <!-- CSS styles embedded directly in the HTML file -->
+    <!-- CSS styles embedded directly -->
     <style>
         /* Basic reset and use of Heebo font */
         * {
@@ -37,14 +37,15 @@
             display: inline-block;
             background: #007BFF;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 5px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .cta-button:hover {
             background: #0056b3;
+            transform: translateY(-2px);
         }
 
         /* Navigation Bar */
@@ -64,7 +65,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #333;
         }
@@ -85,14 +86,31 @@
             color: #007BFF;
         }
 
-        /* Hero Section - Modern and Dynamic */
+        /* Hero Section - Image Background */
         .hero-section {
-            background: linear-gradient(135deg, #007BFF, #0056b3);
+            /* Example image URL from Unsplash - replace with your own professional image */
+            background: url('images.unsplash.com') no-repeat center center/cover;
             color: #fff;
             padding: 10rem 0;
             text-align: center;
-            /* Adding a subtle background animation (dynamic effect) */
+            position: relative;
             animation: fadeIn 1s ease-out;
+        }
+
+        /* Overlay to make text readable on image */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeIn {
@@ -101,7 +119,7 @@
         }
 
         .hero-section h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
 
@@ -140,8 +158,18 @@
         }
 
         .service-card:hover {
-            transform: translateY(-5px); /* Dynamic hover effect */
+            transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Projects/Testimonials section styling */
+        .testimonial-card {
+            background: #0056b3;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* Contact Form */
@@ -174,6 +202,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li> <!-- New Link -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -183,8 +212,8 @@
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>Welcome to InnovateHub</h1>
-            <p>Leading the way in technological innovation. Smart solutions for a changing world.</p>
-            <a href="#contact" class="cta-button">Let's Talk</a>
+            <p>Driving digital transformation through cutting-edge technology and brilliant minds.</p>
+            <a href="#contact" class="cta-button">Let's Innovate</a>
         </div>
     </header>
 
@@ -192,7 +221,8 @@
     <section id="about" class="section-padded">
         <div class="container">
             <h2>About Us</h2>
-            <p>InnovateHub is a groundbreaking company specializing in the development of tailored software solutions and advanced technological consulting.</p>
+            <p>InnovateHub is a leader in full-stack technological solutions. We combine strategic consulting with rapid development cycles to deliver market-ready products. Our mission is to empower businesses with the tools needed to thrive in a data-driven world. Quality and innovation are at our core.</p>
+            <p>Our team comprises expert developers, data scientists, and strategists dedicated to delivering pixel-perfect UI and streamlined processes for maximum efficiency.</p>
         </div>
     </section>
 
@@ -203,26 +233,40 @@
             <div class="service-grid">
                 <div class="service-card">
                     <h3>Web Development</h3>
-                    <p>Building modern and responsive websites.</p>
+                    <p>Building modern, responsive websites and complex web applications using the latest frameworks.</p>
                 </div>
                 <div class="service-card">
                     <h3>Mobile Apps</h3>
-                    <p>Mobile solutions for iOS and Android.</p>
+                    <p>Enterprise-grade mobile solutions for iOS and Android, focusing on user experience and stability.</p>
                 </div>
                 <div class="service-card">
                     <h3>Artificial Intelligence</h3>
-                    <p>Integrating AI into existing products.</p>
+                    <p>Integrating machine learning and AI algorithms to optimize operations and extract valuable insights from data.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cloud Consulting</h3>
+                    <p>Seamless migration and management of infrastructure on AWS, Azure, and Google Cloud platforms.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- New Section: Projects/Testimonials -->
+    <section id="projects" class="section-padded">
+        <div class="container">
+            <h2>Client Success Stories</h2>
+            <div class="testimonial-card">
+                <p>"InnovateHub transformed our operations. Their AI solutions increased our efficiency by 40%. A truly professional experience!"</p>
+                <p>— **Roeeni**, CEO of Global Logistics Inc.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="section-padded">
+    <section id="contact" class="section-padded bg-light">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>We'd love to hear from you! Fill out the details and we'll get back to you shortly.</p>
-            <!-- Basic Contact Form -->
+            <p>We'd love to hear from you! Reach out to discuss your next big idea.</p>
             <form id="contact-form">
                 <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email Address" required>
@@ -239,7 +283,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript embedded directly in the HTML file -->
+    <!-- JavaScript embedded directly -->
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -250,7 +294,6 @@
                 const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
-                    // Modern method for smooth scrolling
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
@@ -258,12 +301,12 @@
             });
         });
 
-        // Basic form handling (example: show success message in console)
+        // Basic form handling
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                console.log("Form submitted successfully! (Server-side logic goes here)");
+                console.log("Form submitted successfully!");
                 alert("Thank you for reaching out! We will get back to you shortly.");
                 this.reset();
             });
