@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InnovateHub | Cloud, AI & Trading Products</title>
+    <meta name="color-scheme" content="dark light">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,10 +29,19 @@
             --accent: #22c55e;
         }
 
+        /* Light theme overrides */
+        :root[data-theme="light"] {
+            --bg: #f9fafb;
+            --bg-soft: #ffffff;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+        }
+
         body {
             font-family: 'Heebo', sans-serif;
             line-height: 1.6;
-            background: radial-gradient(circle at top, #1d2433 0, #020617 40%, #000 100%);
+            background: var(--bg);
             color: var(--text-main);
         }
 
@@ -55,21 +65,44 @@
             border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
 
+        :root[data-theme="light"] .navbar {
+            background: rgba(249, 250, 251, 0.94);
+            border-bottom-color: rgba(209, 213, 219, 0.8);
+        }
+
         .navbar-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0.8rem 0;
+            gap: 1rem;
         }
 
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
         }
 
         .logo span {
             color: var(--primary);
+        }
+
+        .beta-pill {
+            font-size: 0.7rem;
+            color: #22c55e;
+            border: 1px solid #22c55e;
+            border-radius: 999px;
+            padding: 0.05rem 0.35rem;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .nav-links {
@@ -102,6 +135,43 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Language selector */
+        #lang-switcher {
+            background: #020617;
+            color: #e5e7eb;
+            border: 1px solid #374151;
+            border-radius: 999px;
+            padding: 0.25rem 0.7rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        :root[data-theme="light"] #lang-switcher {
+            background: #f3f4f6;
+            color: #111827;
+            border-color: #d1d5db;
+        }
+
+        /* Theme toggle */
+        #theme-toggle {
+            border: 1px solid #374151;
+            border-radius: 999px;
+            background: #020617;
+            color: #e5e7eb;
+            padding: 0.25rem 0.7rem;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            cursor: pointer;
+        }
+
+        :root[data-theme="light"] #theme-toggle {
+            background: #f3f4f6;
+            color: #111827;
+            border-color: #d1d5db;
         }
 
         /* CTA button */
@@ -267,6 +337,10 @@
             margin-top: 0.6rem;
         }
 
+        :root[data-theme="light"] .about-highlight {
+            background: #ffffff;
+        }
+
         .about-list {
             list-style: none;
             margin-top: 1rem;
@@ -287,6 +361,10 @@
             border-radius: 14px;
             border: 1px solid rgba(148, 163, 184, 0.3);
             background: rgba(15, 23, 42, 0.85);
+        }
+
+        :root[data-theme="light"] .founder-card {
+            background: #ffffff;
         }
 
         .founder-avatar {
@@ -314,7 +392,7 @@
 
         /* Services */
         .section-alt {
-            background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
+            background: radial-gradient(circle at top, var(--bg-soft) 0, var(--bg-soft) 50%, var(--bg) 100%);
         }
 
         .services-grid {
@@ -332,10 +410,19 @@
             transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
         }
 
+        :root[data-theme="light"] .service-card {
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+        }
+
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
             border-color: var(--accent);
+        }
+
+        :root[data-theme="light"] .service-card:hover {
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
         }
 
         .service-icon {
@@ -377,6 +464,10 @@
             color: var(--text-muted);
         }
 
+        :root[data-theme="light"] .service-tag {
+            background: #f9fafb;
+        }
+
         /* Projects */
         .projects-grid {
             display: grid;
@@ -392,6 +483,11 @@
             box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
             display: flex;
             flex-direction: column;
+        }
+
+        :root[data-theme="light"] .project-card {
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
         }
 
         .project-media {
@@ -471,6 +567,11 @@
             box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
         }
 
+        :root[data-theme="light"] form {
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+        }
+
         form .field {
             margin-bottom: 0.9rem;
         }
@@ -491,6 +592,13 @@
             background: rgba(15, 23, 42, 0.9);
             color: var(--text-main);
             font-size: 0.9rem;
+        }
+
+        :root[data-theme="light"] form input,
+        :root[data-theme="light"] form textarea {
+            background: #f9fafb;
+            border-color: #d1d5db;
+            color: #111827;
         }
 
         form input:focus,
@@ -550,48 +658,66 @@
         <div class="container navbar-inner">
             <div class="logo">
                 Innovate<span>Hub</span>
+                <span class="beta-pill">beta</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Studio</a></li>
-                <li><a href="#services">Capabilities</a></li>
-                <li><a href="#projects">Work</a></li>
-                <li><a href="#contact">Let’s talk</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav.studio">Studio</a></li>
+                    <li><a href="#services" data-i18n="nav.services">Capabilities</a></li>
+                    <li><a href="#projects" data-i18n="nav.work">Work</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Let’s talk</a></li>
+                </ul>
+
+                <select id="lang-switcher">
+                    <option value="en">EN</option>
+                    <option value="he">HE</option>
+                    <option value="es">ES</option>
+                    <option value="fr">FR</option>
+                    <option value="de">DE</option>
+                </select>
+
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span id="theme-toggle-icon">🌙</span>
+                    <span id="theme-toggle-text">Dark</span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- HERO -->
     <header id="home" class="container hero">
         <div>
-            <div class="hero-copy-eyebrow">Cloud, AI & trading tools studio</div>
-            <h1>
+            <div class="hero-copy-eyebrow" data-i18n="hero.eyebrow">
+                Cloud, AI & trading tools studio
+            </div>
+            <h1 data-i18n="hero.title">
                 We turn complex systems<br>
                 into <span>reliable products</span>.
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
                 InnovateHub helps founders and teams ship secure, scalable cloud products and trading tools –
                 from first prototype to production, with measurable business impact.
             </p>
 
             <div class="hero-badges">
-                <div class="badge">Cloud-native architectures</div>
-                <div class="badge">AI-driven automation</div>
-                <div class="badge">Trading & analytics dashboards</div>
+                <div class="badge" data-i18n="hero.badge1">Cloud-native architectures</div>
+                <div class="badge" data-i18n="hero.badge2">AI-driven automation</div>
+                <div class="badge" data-i18n="hero.badge3">Trading & analytics dashboards</div>
             </div>
 
             <a href="#contact" class="cta-button">
-                Start a project
+                <span data-i18n="hero.cta">Start a project</span>
                 <span class="arrow">→</span>
             </a>
 
             <p class="hero-meta" style="margin-top:0.7rem;">
-                <strong>Preferred by teams</strong> who care about reliability, security and fast delivery.
+                <strong data-i18n="hero.preferredStrong">Preferred by teams</strong>
+                <span data-i18n="hero.preferredText">who care about reliability, security and fast delivery.</span>
             </p>
         </div>
 
         <div class="hero-image-wrapper">
-            <!-- Hero image: צוות/מסכים, אווירה טכנולוגית מודרנית -->
             <img
                 src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg"
                 alt="Engineering and product team collaborating in a dark-themed workspace with multiple dashboards"
@@ -600,5 +726,700 @@
             <div class="hero-tag">
                 <div class="hero-tag-dot"></div>
                 <div>
-                    <div style="font-size:0.78rem;">Live environments monitored</div>
-                    <div style="
+                    <div style="font-size:0.78rem;" data-i18n="hero.tagTitle">Live environments monitored</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);" data-i18n="hero.tagSubtitle">
+                        24/7 observability • Cloud-native • Production ready
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2 data-i18n="about.title">Built by engineers, not buzzwords.</h2>
+                <p data-i18n="about.p1">
+                    InnovateHub is a compact, senior-led studio at the intersection of cloud infrastructure,
+                    AI and product design. The focus is simple: ship things that actually work – fast, secure
+                    and maintainable.
+                </p>
+                <p data-i18n="about.p2">
+                    From trading tools and internal dashboards to customer-facing SaaS, InnovateHub designs,
+                    builds and operates digital products that can handle real-world load and real business risk.
+                </p>
+                <div class="about-highlight" data-i18n="about.highlight">
+                    You bring the problem, we bring architecture, execution and ownership – all the way
+                    from idea to production.
+                </div>
+            </div>
+
+            <div>
+                <ul class="about-list">
+                    <li data-i18n="about.li1">• 10+ years in cloud & infrastructure.</li>
+                    <li data-i18n="about.li2">• Deep experience with GCP, Terraform, Kubernetes & security.</li>
+                    <li data-i18n="about.li3">• Product thinking: UX, performance and reliability from day one.</li>
+                    <li data-i18n="about.li4">• Hands-on support, not just slide decks.</li>
+                </ul>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="https://images.pexels.com/photos/1181695/pexels-photo-1181695.jpeg"
+                             alt="Portrait of a focused engineer in a modern office">
+                    </div>
+                    <div class="founder-meta">
+                        <strong data-i18n="founder.name">Roee Ninyo</strong><br>
+                        <span data-i18n="founder.desc">
+                            Cloud & product engineer behind InnovateHub. Lives in cloud consoles,
+                            trading charts and real-world production systems.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section-alt">
+        <div class="container">
+            <h2 data-i18n="services.title">What we ship</h2>
+            <p class="section-subtitle" data-i18n="services.subtitle">
+                High-impact work across the full stack – from infrastructure to interfaces.
+            </p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 data-i18n="services.web.title">Web & product development</h3>
+                    <p data-i18n="services.web.text">
+                        Design and build responsive web apps, internal tools and trading dashboards
+                        that feel fast and stay stable under load.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="services.web.tag1">React / Next.js</span>
+                        <span class="service-tag" data-i18n="services.web.tag2">APIs & integrations</span>
+                        <span class="service-tag" data-i18n="services.web.tag3">Design systems</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 data-i18n="services.mobile.title">Mobile experiences</h3>
+                    <p data-i18n="services.mobile.text">
+                        Native-feel mobile apps and PWA experiences that fit into your users’ day,
+                        not fight against it.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="services.mobile.tag1">iOS / Android</span>
+                        <span class="service-tag" data-i18n="services.mobile.tag2">Cross-platform</span>
+                        <span class="service-tag" data-i18n="services.mobile.tag3">Analytics ready</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3 data-i18n="services.ai.title">AI & automation</h3>
+                    <p data-i18n="services.ai.text">
+                        Use AI where it actually helps: smart workflows, internal copilots and
+                        data-driven decisions instead of manual busywork.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="services.ai.tag1">ML & LLMs</span>
+                        <span class="service-tag" data-i18n="services.ai.tag2">Data pipelines</span>
+                        <span class="service-tag" data-i18n="services.ai.tag3">Decision support</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3 data-i18n="services.cloud.title">Cloud & reliability</h3>
+                    <p data-i18n="services.cloud.text">
+                        Architect, migrate and operate on GCP, AWS or Azure with security, observability
+                        and cost in mind from day one.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="services.cloud.tag1">GCP / AWS / Azure</span>
+                        <span class="service-tag" data-i18n="services.cloud.tag2">Terraform & IaC</span>
+                        <span class="service-tag" data-i18n="services.cloud.tag3">Monitoring & SRE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <h2 data-i18n="projects.title">Selected work</h2>
+            <p class="section-subtitle" data-i18n="projects.subtitle">
+                A snapshot of the type of products and infrastructure we design, build and operate.
+            </p>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://images.pexels.com/photos/6802043/pexels-photo-6802043.jpeg"
+                             alt="Multi-screen trading setup with charts and order flow views">
+                        <div class="project-pill" data-i18n="projects.trading.pill">Trading analytics</div>
+                    </div>
+                    <div class="project-body">
+                        <h3 data-i18n="projects.trading.title">Real-time trading cockpit</h3>
+                        <p data-i18n="projects.trading.text">
+                            Cloud-native dashboard aggregating order-flow, liquidity zones and
+                            risk metrics into one place for day traders.
+                        </p>
+                        <div class="project-meta" data-i18n="projects.trading.meta">
+                            GCP • Kubernetes • WebSockets • Custom charting
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg"
+                             alt="Team collaborating around an internal operations dashboard">
+                        <div class="project-pill" data-i18n="projects.ops.pill">Operations</div>
+                    </div>
+                    <div class="project-body">
+                        <h3 data-i18n="projects.ops.title">Ops control center</h3>
+                        <p data-i18n="projects.ops.text">
+                            Internal tool that connects multiple data sources into a single pane
+                            of glass for support and operations teams.
+                        </p>
+                        <div class="project-meta" data-i18n="projects.ops.meta">
+                            Role-based access • Audit logs • Alerting
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg"
+                             alt="Cloud infrastructure dashboard with metrics and alerts">
+                        <div class="project-pill" data-i18n="projects.cloud.pill">Cloud & AI</div>
+                    </div>
+                    <div class="project-body">
+                        <h3 data-i18n="projects.cloud.title">Predictive cloud insights</h3>
+                        <p data-i18n="projects.cloud.text">
+                            AI-assisted monitoring that surfaces anomalies and cost drifts
+                            before they become outages.
+                        </p>
+                        <div class="project-meta" data-i18n="projects.cloud.meta">
+                            ML models • Observability • Cost optimization
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-alt">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2 data-i18n="contact.title">Tell us what you’re building.</h2>
+                <p data-i18n="contact.text1">
+                    Share a few lines about your product, timeline and tech stack. If we’re a good fit,
+                    we’ll reply with a short, concrete plan – not a generic PDF.
+                </p>
+                <p class="contact-meta" data-i18n="contact.text2">
+                    Typical engagements start from <strong>architecture sprints</strong> and can grow
+                    into long-term partnerships.
+                </p>
+            </div>
+
+            <form id="contact-form">
+                <div class="field">
+                    <label for="name" data-i18n="contact.form.nameLabel">Full name</label>
+                    <input id="name" type="text" name="name" placeholder="Your name" required>
+                </div>
+                <div class="field">
+                    <label for="email" data-i18n="contact.form.emailLabel">Work email</label>
+                    <input id="email" type="email" name="email" placeholder="you@company.com" required>
+                </div>
+                <div class="field">
+                    <label for="company" data-i18n="contact.form.companyLabel">Company (optional)</label>
+                    <input id="company" type="text" name="company" placeholder="Startup, studio or team name">
+                </div>
+                <div class="field">
+                    <label for="message" data-i18n="contact.form.messageLabel">What do you want to build?</label>
+                    <textarea id="message" name="message" rows="4" placeholder="A couple of sentences are enough." required></textarea>
+                    <small data-i18n="contact.form.helper">
+                        Feel free to mention existing stack, deadlines or constraints.
+                    </small>
+                </div>
+
+                <button type="submit" class="cta-button">
+                    <span data-i18n="contact.form.cta">Send message</span>
+                    <span class="arrow">↗</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-inner">
+            <div>© 2025 InnovateHub. All rights reserved.</div>
+            <div data-i18n="footer.tagline">Built with care for teams that actually ship.</div>
+        </div>
+    </footer>
+
+    <script>
+        // THEME TOGGLE
+        const htmlEl = document.documentElement;
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const themeToggleIcon = document.getElementById("theme-toggle-icon");
+        const themeToggleText = document.getElementById("theme-toggle-text");
+
+        function getPreferredTheme() {
+            const stored = localStorage.getItem("theme");
+            if (stored === "light" || stored === "dark") return stored;
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+
+        function applyTheme(theme) {
+            htmlEl.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+            if (theme === "dark") {
+                themeToggleIcon.textContent = "🌙";
+                themeToggleText.textContent = "Dark";
+                themeToggleBtn.setAttribute("aria-label", "Switch to light mode");
+            } else {
+                themeToggleIcon.textContent = "☀️";
+                themeToggleText.textContent = "Light";
+                themeToggleBtn.setAttribute("aria-label", "Switch to dark mode");
+            }
+        }
+
+        const initialTheme = getPreferredTheme();
+        applyTheme(initialTheme);
+
+        themeToggleBtn.addEventListener("click", () => {
+            const current = htmlEl.getAttribute("data-theme") === "dark" ? "dark" : "light";
+            applyTheme(current === "dark" ? "light" : "dark");
+        });
+
+        // I18N TRANSLATIONS
+        const translations = {
+          en: {
+            "nav.home": "Home",
+            "nav.studio": "Studio",
+            "nav.services": "Capabilities",
+            "nav.work": "Work",
+            "nav.contact": "Let’s talk",
+            "hero.eyebrow": "Cloud, AI & trading tools studio",
+            "hero.title": "We turn complex systems<br>into <span>reliable products</span>.",
+            "hero.subtitle": "InnovateHub helps founders and teams ship secure, scalable cloud products and trading tools – from first prototype to production, with measurable business impact.",
+            "hero.badge1": "Cloud-native architectures",
+            "hero.badge2": "AI-driven automation",
+            "hero.badge3": "Trading & analytics dashboards",
+            "hero.cta": "Start a project",
+            "hero.preferredStrong": "Preferred by teams",
+            "hero.preferredText": "who care about reliability, security and fast delivery.",
+            "hero.tagTitle": "Live environments monitored",
+            "hero.tagSubtitle": "24/7 observability • Cloud-native • Production ready",
+            "about.title": "Built by engineers, not buzzwords.",
+            "about.p1": "InnovateHub is a compact, senior-led studio at the intersection of cloud infrastructure, AI and product design. The focus is simple: ship things that actually work – fast, secure and maintainable.",
+            "about.p2": "From trading tools and internal dashboards to customer-facing SaaS, InnovateHub designs, builds and operates digital products that can handle real-world load and real business risk.",
+            "about.highlight": "You bring the problem, we bring architecture, execution and ownership – all the way from idea to production.",
+            "about.li1": "• 10+ years in cloud & infrastructure.",
+            "about.li2": "• Deep experience with GCP, Terraform, Kubernetes & security.",
+            "about.li3": "• Product thinking: UX, performance and reliability from day one.",
+            "about.li4": "• Hands-on support, not just slide decks.",
+            "founder.name": "Roee Ninyo",
+            "founder.desc": "Cloud & product engineer behind InnovateHub. Lives in cloud consoles, trading charts and real-world production systems.",
+            "services.title": "What we ship",
+            "services.subtitle": "High-impact work across the full stack – from infrastructure to interfaces.",
+            "services.web.title": "Web & product development",
+            "services.web.text": "Design and build responsive web apps, internal tools and trading dashboards that feel fast and stay stable under load.",
+            "services.web.tag1": "React / Next.js",
+            "services.web.tag2": "APIs & integrations",
+            "services.web.tag3": "Design systems",
+            "services.mobile.title": "Mobile experiences",
+            "services.mobile.text": "Native-feel mobile apps and PWA experiences that fit into your users’ day, not fight against it.",
+            "services.mobile.tag1": "iOS / Android",
+            "services.mobile.tag2": "Cross-platform",
+            "services.mobile.tag3": "Analytics ready",
+            "services.ai.title": "AI & automation",
+            "services.ai.text": "Use AI where it actually helps: smart workflows, internal copilots and data-driven decisions instead of manual busywork.",
+            "services.ai.tag1": "ML & LLMs",
+            "services.ai.tag2": "Data pipelines",
+            "services.ai.tag3": "Decision support",
+            "services.cloud.title": "Cloud & reliability",
+            "services.cloud.text": "Architect, migrate and operate on GCP, AWS or Azure with security, observability and cost in mind from day one.",
+            "services.cloud.tag1": "GCP / AWS / Azure",
+            "services.cloud.tag2": "Terraform & IaC",
+            "services.cloud.tag3": "Monitoring & SRE",
+            "projects.title": "Selected work",
+            "projects.subtitle": "A snapshot of the type of products and infrastructure we design, build and operate.",
+            "projects.trading.pill": "Trading analytics",
+            "projects.trading.title": "Real-time trading cockpit",
+            "projects.trading.text": "Cloud-native dashboard aggregating order-flow, liquidity zones and risk metrics into one place for day traders.",
+            "projects.trading.meta": "GCP • Kubernetes • WebSockets • Custom charting",
+            "projects.ops.pill": "Operations",
+            "projects.ops.title": "Ops control center",
+            "projects.ops.text": "Internal tool that connects multiple data sources into a single pane of glass for support and operations teams.",
+            "projects.ops.meta": "Role-based access • Audit logs • Alerting",
+            "projects.cloud.pill": "Cloud & AI",
+            "projects.cloud.title": "Predictive cloud insights",
+            "projects.cloud.text": "AI-assisted monitoring that surfaces anomalies and cost drifts before they become outages.",
+            "projects.cloud.meta": "ML models • Observability • Cost optimization",
+            "contact.title": "Tell us what you’re building.",
+            "contact.text1": "Share a few lines about your product, timeline and tech stack. If we’re a good fit, we’ll reply with a short, concrete plan – not a generic PDF.",
+            "contact.text2": "Typical engagements start from <strong>architecture sprints</strong> and can grow into long-term partnerships.",
+            "contact.form.nameLabel": "Full name",
+            "contact.form.emailLabel": "Work email",
+            "contact.form.companyLabel": "Company (optional)",
+            "contact.form.messageLabel": "What do you want to build?",
+            "contact.form.helper": "Feel free to mention existing stack, deadlines or constraints.",
+            "contact.form.cta": "Send message",
+            "footer.tagline": "Built with care for teams that actually ship."
+          },
+          he: {
+            "nav.home": "בית",
+            "nav.studio": "הסטודיו",
+            "nav.services": "יכולות",
+            "nav.work": "עבודות",
+            "nav.contact": "דברו איתנו",
+            "hero.eyebrow": "סטודיו לענן, AI וכלי מסחר",
+            "hero.title": "הופכים מערכות מורכבות<br>ל<span>מוצרים יציבים</span>.",
+            "hero.subtitle": "InnovateHub עוזר למייסדים ולצוותים להוציא לפועל מוצרים בענן וכלי מסחר – מאבטיפוס ראשון ועד פרודקשן, עם השפעה עסקית אמיתית.",
+            "hero.badge1": "ארכיטקטורות Cloud-native",
+            "hero.badge2": "אוטומציה מונעת AI",
+            "hero.badge3": "דשבורדים למסחר וניתוח",
+            "hero.cta": "התחל פרויקט",
+            "hero.preferredStrong": "מועדף על צוותים",
+            "hero.preferredText": "שמשלבים בין אמינות, אבטחה ומהירות ביצוע.",
+            "hero.tagTitle": "סביבות חיות תחת ניטור",
+            "hero.tagSubtitle": "תצפיות 24/7 • Cloud-native • מוכן לפרודקשן",
+            "about.title": "נבנה על ידי מהנדסים, לא על ידי סיסמאות.",
+            "about.p1": "InnovateHub הוא סטודיו קטן ומנוסה שפועל בצומת בין תשתיות ענן, AI ועיצוב מוצר. המטרה פשוטה: לבנות מערכות שעובדות באמת – מהר, מאובטח וקל לתחזוקה.",
+            "about.p2": "מכלי מסחר ודשבורדים פנימיים ועד SaaS ללקוחות קצה – InnovateHub מתכנן, בונה ומפעיל מוצרים דיגיטליים שמחזיקים עומסים ונותנים ערך עסקי אמיתי.",
+            "about.highlight": "אתם מביאים את הבעיה, אנחנו מביאים ארכיטקטורה, ביצוע ואחריות – מהרעיון ועד לפרודקשן.",
+            "about.li1": "• מעל 10 שנות ניסיון בענן ותשתיות.",
+            "about.li2": "• התמחות עמוקה ב-GCP, Terraform, Kubernetes ואבטחה.",
+            "about.li3": "• חשיבה מוצרית: חוויית משתמש, ביצועים ואמינות מהיום הראשון.",
+            "about.li4": "• ליווי hands-on, לא רק מצגות.",
+            "founder.name": "Roee Ninyo",
+            "founder.desc": "מהנדס ענן ומוצר מאחורי InnovateHub. חי בתוך קונסולות ענן, גרפים של מסחר וסביבות פרודקשן אמיתיות.",
+            "services.title": "מה אנחנו מספקים",
+            "services.subtitle": "עבודה עתירת השפעה לאורך כל הסטאק – מהתשתית ועד הממשק.",
+            "services.web.title": "פיתוח Web ומוצרים",
+            "services.web.text": "תכנון ופיתוח אפליקציות Web, כלים פנימיים ודשבורדים למסחר – מהירים, יציבים ומוכנים לעומס.",
+            "services.web.tag1": "React / Next.js",
+            "services.web.tag2": "אינטגרציות ו-APIs",
+            "services.web.tag3": "Design systems",
+            "services.mobile.title": "חוויות מובייל",
+            "services.mobile.text": "אפליקציות מובייל ו-PWA שמתחברות ליום של המשתמשים במקום להפריע לו.",
+            "services.mobile.tag1": "iOS / Android",
+            "services.mobile.tag2": "Cross-platform",
+            "services.mobile.tag3": "Analytics ready",
+            "services.ai.title": "AI ואוטומציה",
+            "services.ai.text": "להכניס AI במקום שבו הוא באמת מוסיף: תהליכים חכמים, copilots פנימיים והחלטות מבוססות נתונים במקום עבודת יד מיותרת.",
+            "services.ai.tag1": "ML & LLMs",
+            "services.ai.tag2": "Data pipelines",
+            "services.ai.tag3": "Decision support",
+            "services.cloud.title": "ענן ואמינות",
+            "services.cloud.text": "ארכיטקטורה, מיגרציה והפעלה ב-GCP, AWS או Azure עם דגש על אבטחה, ניטור ועלויות מהיום הראשון.",
+            "services.cloud.tag1": "GCP / AWS / Azure",
+            "services.cloud.tag2": "Terraform & IaC",
+            "services.cloud.tag3": "Monitoring & SRE",
+            "projects.title": "עבודות נבחרות",
+            "projects.subtitle": "טעימה מסוג המוצרים והתשתיות שאנחנו מתכננים, בונים ומפעילים.",
+            "projects.trading.pill": "Trading analytics",
+            "projects.trading.title": "Cockpit למסחר בזמן אמת",
+            "projects.trading.text": "דשבורד Cloud-native שמרכז order-flow, אזורי נזילות ומדדי סיכון למקום אחד עבור סוחרי יום.",
+            "projects.trading.meta": "GCP • Kubernetes • WebSockets • Custom charting",
+            "projects.ops.pill": "Operations",
+            "projects.ops.title": "מרכז שליטה תפעולי",
+            "projects.ops.text": "כלי פנימי שמחבר מספר מקורות נתונים למסך אחד עבור צוותי תמיכה ותפעול.",
+            "projects.ops.meta": "הרשאות לפי תפקיד • Audit logs • התראות",
+            "projects.cloud.pill": "Cloud & AI",
+            "projects.cloud.title": "תובנות חכמות לענן",
+            "projects.cloud.text": "ניטור מונע-AI שמזהה חריגות ועלויות חורגות לפני שהן הופכות לתקלות.",
+            "projects.cloud.meta": "מודלי ML • Observability • אופטימיזציית עלויות",
+            "contact.title": "ספרו לנו מה אתם בונים.",
+            "contact.text1": "כתבו כמה שורות על המוצר, הטיימליין והסטאק. אם תהיה התאמה – נחזור עם הצעה קצרה וברורה, לא עם PDF גנרי.",
+            "contact.text2": "רוב שיתופי הפעולה מתחילים מ-architecture sprint ויכולים להתפתח לשותפות ארוכת טווח.",
+            "contact.form.nameLabel": "שם מלא",
+            "contact.form.emailLabel": "אימייל עבודה",
+            "contact.form.companyLabel": "חברה (לא חובה)",
+            "contact.form.messageLabel": "מה אתם רוצים לבנות?",
+            "contact.form.helper": "מוזמנים לציין סטאק קיים, דדליינים או מגבלות.",
+            "contact.form.cta": "שלחו הודעה",
+            "footer.tagline": "נבנה באהבה לצוותים שבאמת מוציאים דברים לפועל."
+          },
+          es: {
+            "nav.home": "Inicio",
+            "nav.studio": "Estudio",
+            "nav.services": "Capacidades",
+            "nav.work": "Proyectos",
+            "nav.contact": "Contacto",
+            "hero.eyebrow": "Estudio de nube, IA y herramientas de trading",
+            "hero.title": "Convertimos sistemas complejos<br>en <span>productos fiables</span>.",
+            "hero.subtitle": "InnovateHub ayuda a equipos y fundadores a lanzar productos en la nube y herramientas de trading seguras y escalables, desde el prototipo hasta producción, con impacto medible.",
+            "hero.badge1": "Arquitecturas cloud-native",
+            "hero.badge2": "Automatización con IA",
+            "hero.badge3": "Paneles de trading y analítica",
+            "hero.cta": "Empezar un proyecto",
+            "hero.preferredStrong": "Preferido por equipos",
+            "hero.preferredText": "que valoran fiabilidad, seguridad y rapidez.",
+            "hero.tagTitle": "Entornos en producción monitorizados",
+            "hero.tagSubtitle": "Observabilidad 24/7 • Cloud-native • Listo para producción",
+            "about.title": "Hecho por ingenieros, no por eslóganes.",
+            "about.p1": "InnovateHub es un estudio pequeño y senior en la intersección de infraestructura cloud, IA y diseño de producto. El objetivo es simple: entregar sistemas que funcionan de verdad: rápidos, seguros y mantenibles.",
+            "about.p2": "Desde herramientas de trading y paneles internos hasta SaaS para clientes finales, InnovateHub diseña, construye y opera productos digitales preparados para el mundo real.",
+            "about.highlight": "Tú traes el problema, nosotros aportamos arquitectura, ejecución y responsabilidad, desde la idea hasta producción.",
+            "about.li1": "• 10+ años en cloud e infraestructura.",
+            "about.li2": "• Amplia experiencia con GCP, Terraform, Kubernetes y seguridad.",
+            "about.li3": "• Visión de producto: UX, rendimiento y fiabilidad desde el inicio.",
+            "about.li4": "• Soporte práctico, no solo presentaciones.",
+            "founder.name": "Roee Ninyo",
+            "founder.desc": "Ingeniero de cloud y producto detrás de InnovateHub. Vive entre consolas cloud, gráficos de trading y sistemas en producción.",
+            "services.title": "Qué entregamos",
+            "services.subtitle": "Trabajo de alto impacto en todo el stack, de la infraestructura a la interfaz.",
+            "services.web.title": "Desarrollo web y de producto",
+            "services.web.text": "Diseño y desarrollo de apps web, herramientas internas y paneles de trading rápidos y estables.",
+            "services.web.tag1": "React / Next.js",
+            "services.web.tag2": "APIs e integraciones",
+            "services.web.tag3": "Design systems",
+            "services.mobile.title": "Experiencias móviles",
+            "services.mobile.text": "Apps móviles y PWAs que encajan en el día a día de tus usuarios.",
+            "services.mobile.tag1": "iOS / Android",
+            "services.mobile.tag2": "Multiplataforma",
+            "services.mobile.tag3": "Preparado para analítica",
+            "services.ai.title": "IA y automatización",
+            "services.ai.text": "Aplicar IA donde realmente ayuda: flujos inteligentes, copilotos internos y decisiones basadas en datos.",
+            "services.ai.tag1": "ML & LLMs",
+            "services.ai.tag2": "Pipelines de datos",
+            "services.ai.tag3": "Soporte a la decisión",
+            "services.cloud.title": "Cloud y fiabilidad",
+            "services.cloud.text": "Arquitectura, migración y operación en GCP, AWS o Azure con foco en seguridad, observabilidad y costes.",
+            "services.cloud.tag1": "GCP / AWS / Azure",
+            "services.cloud.tag2": "Terraform & IaC",
+            "services.cloud.tag3": "Monitoring & SRE",
+            "projects.title": "Proyectos destacados",
+            "projects.subtitle": "Una muestra de los productos e infraestructuras que diseñamos, construimos y operamos.",
+            "projects.trading.pill": "Trading analytics",
+            "projects.trading.title": "Cabina de trading en tiempo real",
+            "projects.trading.text": "Panel cloud-native que unifica order-flow, zonas de liquidez y métricas de riesgo en un solo lugar.",
+            "projects.trading.meta": "GCP • Kubernetes • WebSockets • Gráficos a medida",
+            "projects.ops.pill": "Operaciones",
+            "projects.ops.title": "Centro de control de operaciones",
+            "projects.ops.text": "Herramienta interna que conecta múltiples fuentes de datos en una única vista para equipos de soporte.",
+            "projects.ops.meta": "Acceso basado en roles • Logs de auditoría • Alertas",
+            "projects.cloud.pill": "Cloud & IA",
+            "projects.cloud.title": "Insights predictivos en la nube",
+            "projects.cloud.text": "Monitorización asistida por IA que detecta anomalías y desviaciones de coste antes de que haya incidentes.",
+            "projects.cloud.meta": "Modelos de ML • Observabilidad • Optimización de costes",
+            "contact.title": "Cuéntanos qué quieres construir.",
+            "contact.text1": "Escribe unas líneas sobre tu producto, plazos y stack. Si encajamos, te responderemos con un plan concreto y breve.",
+            "contact.text2": "Las colaboraciones suelen empezar con un architecture sprint y pueden crecer a una relación a largo plazo.",
+            "contact.form.nameLabel": "Nombre completo",
+            "contact.form.emailLabel": "Email de trabajo",
+            "contact.form.companyLabel": "Empresa (opcional)",
+            "contact.form.messageLabel": "¿Qué quieres construir?",
+            "contact.form.helper": "Puedes mencionar stack existente, fechas límite o restricciones.",
+            "contact.form.cta": "Enviar mensaje",
+            "footer.tagline": "Construido con cuidado para equipos que realmente entregan."
+          },
+          fr: {
+            "nav.home": "Accueil",
+            "nav.studio": "Studio",
+            "nav.services": "Compétences",
+            "nav.work": "Projets",
+            "nav.contact": "Contact",
+            "hero.eyebrow": "Studio cloud, IA et trading",
+            "hero.title": "Nous transformons des systèmes complexes<br>en <span>produits fiables</span>.",
+            "hero.subtitle": "InnovateHub aide les fondateurs et les équipes à livrer des produits cloud et des outils de trading sécurisés et scalables, du prototype à la production, avec un impact mesurable.",
+            "hero.badge1": "Architectures cloud-native",
+            "hero.badge2": "Automatisation par IA",
+            "hero.badge3": "Tableaux de bord de trading",
+            "hero.cta": "Lancer un projet",
+            "hero.preferredStrong": "Choisi par les équipes",
+            "hero.preferredText": "qui exigent fiabilité, sécurité et rapidité.",
+            "hero.tagTitle": "Environnements live monitorés",
+            "hero.tagSubtitle": "Observabilité 24/7 • Cloud-native • Prêt pour la production",
+            "about.title": "Conçu par des ingénieurs, pas par des buzzwords.",
+            "about.p1": "InnovateHub est un studio senior et compact, à la croisée de l’infrastructure cloud, de l’IA et du design produit. L'objectif est simple : livrer des systèmes qui fonctionnent vraiment – rapides, sécurisés et maintenables.",
+            "about.p2": "Des outils de trading et tableaux de bord internes aux SaaS orientés clients, InnovateHub conçoit, construit et opère des produits digitaux prêts pour le terrain.",
+            "about.highlight": "Vous venez avec le problème, nous apportons l’architecture, l’exécution et la responsabilité – de l’idée à la production.",
+            "about.li1": "• 10+ ans d’expérience en cloud et infrastructure.",
+            "about.li2": "• Expertise approfondie en GCP, Terraform, Kubernetes et sécurité.",
+            "about.li3": "• Vision produit : UX, performance et fiabilité dès le départ.",
+            "about.li4": "• Accompagnement opérationnel, pas seulement des slides.",
+            "founder.name": "Roee Ninyo",
+            "founder.desc": "Ingénieur cloud et produit derrière InnovateHub. Vit entre consoles cloud, graphiques de trading et systèmes en production.",
+            "services.title": "Ce que nous livrons",
+            "services.subtitle": "Travail à fort impact sur tout le stack – de l’infrastructure à l’interface.",
+            "services.web.title": "Développement web & produit",
+            "services.web.text": "Conception et développement d’apps web, d’outils internes et de tableaux de bord de trading rapides et stables.",
+            "services.web.tag1": "React / Next.js",
+            "services.web.tag2": "APIs & intégrations",
+            "services.web.tag3": "Design systems",
+            "services.mobile.title": "Expériences mobiles",
+            "services.mobile.text": "Applications mobiles et PWAs qui s’intègrent naturellement dans la journée de vos utilisateurs.",
+            "services.mobile.tag1": "iOS / Android",
+            "services.mobile.tag2": "Multiplateforme",
+            "services.mobile.tag3": "Prêt pour l’analytics",
+            "services.ai.title": "IA & automatisation",
+            "services.ai.text": "Utiliser l’IA là où elle apporte vraiment de la valeur : workflows intelligents, copilotes internes et décisions guidées par les données.",
+            "services.ai.tag1": "ML & LLMs",
+            "services.ai.tag2": "Pipelines de données",
+            "services.ai.tag3": "Aide à la décision",
+            "services.cloud.title": "Cloud & fiabilité",
+            "services.cloud.text": "Architecture, migration et exploitation sur GCP, AWS ou Azure avec un focus sécurité, observabilité et coûts.",
+            "services.cloud.tag1": "GCP / AWS / Azure",
+            "services.cloud.tag2": "Terraform & IaC",
+            "services.cloud.tag3": "Monitoring & SRE",
+            "projects.title": "Réalisations",
+            "projects.subtitle": "Aperçu des produits et infrastructures que nous concevons, construisons et opérons.",
+            "projects.trading.pill": "Trading analytics",
+            "projects.trading.title": "Cockpit de trading temps réel",
+            "projects.trading.text": "Tableau de bord cloud-native réunissant flow d’ordres, zones de liquidité et métriques de risque.",
+            "projects.trading.meta": "GCP • Kubernetes • WebSockets • Graphiques sur mesure",
+            "projects.ops.pill": "Opérations",
+            "projects.ops.title": "Centre de contrôle Ops",
+            "projects.ops.text": "Outil interne reliant plusieurs sources de données dans une vue unique pour les équipes de support.",
+            "projects.ops.meta": "Accès par rôles • Logs d’audit • Alertes",
+            "projects.cloud.pill": "Cloud & IA",
+            "projects.cloud.title": "Insights cloud prédictifs",
+            "projects.cloud.text": "Surveillance assistée par IA pour détecter anomalies et dérives de coûts avant les incidents.",
+            "projects.cloud.meta": "Modèles ML • Observabilité • Optimisation de coûts",
+            "contact.title": "Dites-nous ce que vous construisez.",
+            "contact.text1": "Partagez quelques lignes sur votre produit, vos délais et votre stack. Si le fit est bon, nous reviendrons avec un plan concret et concis.",
+            "contact.text2": "Les missions démarrent souvent par un architecture sprint et peuvent évoluer en partenariat long terme.",
+            "contact.form.nameLabel": "Nom complet",
+            "contact.form.emailLabel": "Email professionnel",
+            "contact.form.companyLabel": "Entreprise (optionnel)",
+            "contact.form.messageLabel": "Que voulez-vous construire ?",
+            "contact.form.helper": "Vous pouvez préciser stack existant, délais ou contraintes.",
+            "contact.form.cta": "Envoyer le message",
+            "footer.tagline": "Créé avec soin pour les équipes qui livrent vraiment."
+          },
+          de: {
+            "nav.home": "Start",
+            "nav.studio": "Studio",
+            "nav.services": "Leistungen",
+            "nav.work": "Projekte",
+            "nav.contact": "Kontakt",
+            "hero.eyebrow": "Studio für Cloud, KI & Trading-Tools",
+            "hero.title": "Wir machen komplexe Systeme<br>zu <span>zuverlässigen Produkten</span>.",
+            "hero.subtitle": "InnovateHub hilft Teams und Gründer:innen dabei, sichere und skalierbare Cloud-Produkte und Trading-Tools von Prototyp bis Produktion mit messbarem Impact zu liefern.",
+            "hero.badge1": "Cloud-native Architekturen",
+            "hero.badge2": "KI-gestützte Automatisierung",
+            "hero.badge3": "Trading- & Analytics-Dashboards",
+            "hero.cta": "Projekt starten",
+            "hero.preferredStrong": "Bevorzugt von Teams",
+            "hero.preferredText": "denen Zuverlässigkeit, Sicherheit und Geschwindigkeit wichtig sind.",
+            "hero.tagTitle": "Live-Umgebungen im Monitoring",
+            "hero.tagSubtitle": "24/7 Observability • Cloud-native • Production ready",
+            "about.title": "Von Ingenieuren gebaut, nicht von Buzzwords.",
+            "about.p1": "InnovateHub ist ein kleines, senior-geführtes Studio an der Schnittstelle von Cloud-Infrastruktur, KI und Produktdesign. Ziel: Systeme liefern, die wirklich funktionieren – schnell, sicher und wartbar.",
+            "about.p2": "Von Trading-Tools und internen Dashboards bis zu kundenorientiertem SaaS: InnovateHub entwirft, baut und betreibt digitale Produkte, die reale Lasten und Risiken aushalten.",
+            "about.highlight": "Du bringst das Problem, wir bringen Architektur, Umsetzung und Verantwortung – von der Idee bis zur Produktion.",
+            "about.li1": "• 10+ Jahre Erfahrung in Cloud & Infrastruktur.",
+            "about.li2": "• Tiefgreifende Erfahrung mit GCP, Terraform, Kubernetes & Security.",
+            "about.li3": "• Produktdenken: UX, Performance und Zuverlässigkeit von Tag eins.",
+            "about.li4": "• Hands-on Support statt nur Folien.",
+            "founder.name": "Roee Ninyo",
+            "founder.desc": "Cloud- und Produktingenieur hinter InnovateHub. Lebt in Cloud-Consoles, Trading-Charts und produktiven Systemen.",
+            "services.title": "Was wir liefern",
+            "services.subtitle": "High-Impact-Arbeit über den gesamten Stack – von Infrastruktur bis Interface.",
+            "services.web.title": "Web- & Produktentwicklung",
+            "services.web.text": "Konzeption und Entwicklung von Web-Apps, internen Tools und Trading-Dashboards, die schnell und stabil sind.",
+            "services.web.tag1": "React / Next.js",
+            "services.web.tag2": "APIs & Integrationen",
+            "services.web.tag3": "Design Systems",
+            "services.mobile.title": "Mobile Experiences",
+            "services.mobile.text": "Mobile Apps und PWAs, die sich in den Alltag deiner Nutzer einfügen, nicht dagegen arbeiten.",
+            "services.mobile.tag1": "iOS / Android",
+            "services.mobile.tag2": "Cross-Platform",
+            "services.mobile.tag3": "Analytics ready",
+            "services.ai.title": "KI & Automatisierung",
+            "services.ai.text": "KI dort einsetzen, wo sie wirklich hilft: smarte Workflows, interne Copilots und datengetriebene Entscheidungen.",
+            "services.ai.tag1": "ML & LLMs",
+            "services.ai.tag2": "Daten-Pipelines",
+            "services.ai.tag3": "Decision Support",
+            "services.cloud.title": "Cloud & Zuverlässigkeit",
+            "services.cloud.text": "Architektur, Migration und Betrieb auf GCP, AWS oder Azure mit Fokus auf Security, Observability und Kosten.",
+            "services.cloud.tag1": "GCP / AWS / Azure",
+            "services.cloud.tag2": "Terraform & IaC",
+            "services.cloud.tag3": "Monitoring & SRE",
+            "projects.title": "Ausgewählte Arbeiten",
+            "projects.subtitle": "Ein Einblick in die Produkte und Infrastrukturen, die wir entwerfen, bauen und betreiben.",
+            "projects.trading.pill": "Trading Analytics",
+            "projects.trading.title": "Trading Cockpit in Echtzeit",
+            "projects.trading.text": "Cloud-native Dashboard, das Order-Flow, Liquiditätszonen und Risikometriken an einem Ort bündelt.",
+            "projects.trading.meta": "GCP • Kubernetes • WebSockets • Custom Charts",
+            "projects.ops.pill": "Operations",
+            "projects.ops.title": "Ops Control Center",
+            "projects.ops.text": "Internes Tool, das mehrere Datenquellen in einer Oberfläche für Support-Teams vereint.",
+            "projects.ops.meta": "Rollenbasierter Zugriff • Audit Logs • Alerts",
+            "projects.cloud.pill": "Cloud & KI",
+            "projects.cloud.title": "Präventive Cloud Insights",
+            "projects.cloud.text": "KI-gestütztes Monitoring, das Anomalien und Kostenabweichungen erkennt, bevor sie zu Ausfällen werden.",
+            "projects.cloud.meta": "ML-Modelle • Observability • Kostenoptimierung",
+            "contact.title": "Erzähl uns, was du baust.",
+            "contact.text1": "Schreibe ein paar Zeilen zu Produkt, Zeitplan und Tech-Stack. Wenn es passt, melden wir uns mit einem kurzen, konkreten Plan.",
+            "contact.text2": "Typische Projekte starten mit einem Architecture Sprint und können in langfristige Partnerschaften übergehen.",
+            "contact.form.nameLabel": "Vollständiger Name",
+            "contact.form.emailLabel": "Business-E-Mail",
+            "contact.form.companyLabel": "Firma (optional)",
+            "contact.form.messageLabel": "Was möchtest du bauen?",
+            "contact.form.helper": "Erwähne gerne bestehenden Stack, Deadlines oder Einschränkungen.",
+            "contact.form.cta": "Nachricht senden",
+            "footer.tagline": "Mit Sorgfalt gebaut für Teams, die wirklich liefern."
+          }
+        };
+
+        function applyTranslations(lang) {
+          const dict = translations[lang] || translations.en;
+          document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            const value = dict[key];
+            if (!value) return;
+            el.innerHTML = value;
+          });
+          localStorage.setItem("lang", lang);
+        }
+
+        const langSelect = document.getElementById("lang-switcher");
+        const storedLang = localStorage.getItem("lang");
+        const browserLang = navigator.language?.slice(0,2) || "en";
+        const initialLang = storedLang || (["he","es","fr","de"].includes(browserLang) ? browserLang : "en");
+        langSelect.value = initialLang;
+        applyTranslations(initialLang);
+
+        langSelect.addEventListener("change", (e) => {
+          applyTranslations(e.target.value);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.length > 1) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Basic form handler
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert("Thanks for reaching out! We’ll get back to you shortly.");
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
