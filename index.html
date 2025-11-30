@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateHub | Cloud, AI & Product Studio</title>
+    <title>InnovateHub | Cloud, AI & Trading Products</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -278,6 +278,40 @@
             margin-bottom: 0.4rem;
         }
 
+        .founder-card {
+            margin-top: 1.8rem;
+            display: flex;
+            gap: 0.9rem;
+            align-items: center;
+            padding: 0.9rem 1rem;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        .founder-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .founder-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .founder-meta strong {
+            color: var(--text-main);
+        }
+
         /* Services */
         .section-alt {
             background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
@@ -530,20 +564,20 @@
     <!-- HERO -->
     <header id="home" class="container hero">
         <div>
-            <div class="hero-copy-eyebrow">Cloud, AI & product studio</div>
+            <div class="hero-copy-eyebrow">Cloud, AI & trading tools studio</div>
             <h1>
-                We turn complex ideas<br>
-                into <span>real products</span>.
+                We turn complex systems<br>
+                into <span>reliable products</span>.
             </h1>
             <p class="hero-subtitle">
-                InnovateHub helps founders and teams ship secure, scalable products on the cloud –
+                InnovateHub helps founders and teams ship secure, scalable cloud products and trading tools –
                 from first prototype to production, with measurable business impact.
             </p>
 
             <div class="hero-badges">
                 <div class="badge">Cloud-native architectures</div>
-                <div class="badge">AI-powered automation</div>
-                <div class="badge">From idea to MVP in weeks</div>
+                <div class="badge">AI-driven automation</div>
+                <div class="badge">Trading & analytics dashboards</div>
             </div>
 
             <a href="#contact" class="cta-button">
@@ -557,267 +591,14 @@
         </div>
 
         <div class="hero-image-wrapper">
-            <!-- Hero image: מודרני, משרד/צוות סביב מסכים -->
+            <!-- Hero image: צוות/מסכים, אווירה טכנולוגית מודרנית -->
             <img
-                src="https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg"
-                alt="Product and engineering team reviewing dashboards in a modern workspace"
+                src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg"
+                alt="Engineering and product team collaborating in a dark-themed workspace with multiple dashboards"
                 class="hero-image"
             >
             <div class="hero-tag">
                 <div class="hero-tag-dot"></div>
                 <div>
                     <div style="font-size:0.78rem;">Live environments monitored</div>
-                    <div style="font-size:0.72rem; color:var(--text-muted);">
-                        24/7 observability • Cloud-native • Production ready
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="container about-grid">
-            <div class="about-text">
-                <h2>Built by engineers, not buzzwords.</h2>
-                <p>
-                    InnovateHub is a compact, senior-led studio at the intersection of cloud
-                    infrastructure, AI and product design. The focus is simple: ship things that
-                    actually work – fast, secure and maintainable.
-                </p>
-                <p>
-                    From trading tools and internal dashboards to customer-facing SaaS, InnovateHub
-                    designs, builds and operates digital products that can handle real-world load
-                    and real business risk.
-                </p>
-                <div class="about-highlight">
-                    You bring the problem, we bring architecture, execution and ownership – all the way
-                    from idea to production.
-                </div>
-            </div>
-
-            <div>
-                <ul class="about-list">
-                    <li>• 10+ years in cloud & infrastructure.</li>
-                    <li>• Deep experience with GCP, Terraform, Kubernetes & security.</li>
-                    <li>• Product thinking: UX, performance and reliability from day one.</li>
-                    <li>• Hands-on support, not just slide decks.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section-alt">
-        <div class="container">
-            <h2>What we ship</h2>
-            <p class="section-subtitle">
-                High-impact work across the full stack – from infrastructure to interfaces.
-            </p>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Web & product development</h3>
-                    <p>
-                        Design and build responsive web apps, internal tools and trading dashboards
-                        that feel fast and stay stable under load.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">React / Next.js</span>
-                        <span class="service-tag">APIs & integrations</span>
-                        <span class="service-tag">Design systems</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Mobile experiences</h3>
-                    <p>
-                        Native-feel mobile apps and PWA experiences that fit into your users’ day,
-                        not fight against it.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">iOS / Android</span>
-                        <span class="service-tag">Cross-platform</span>
-                        <span class="service-tag">Analytics ready</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI & automation</h3>
-                    <p>
-                        Use AI where it actually helps: smart workflows, internal copilots and
-                        data-driven decisions instead of manual busywork.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">ML & LLMs</span>
-                        <span class="service-tag">Data pipelines</span>
-                        <span class="service-tag">Decision support</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3>Cloud & reliability</h3>
-                    <p>
-                        Architect, migrate and operate on GCP, AWS or Azure with security, observability
-                        and cost in mind from day one.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">GCP / AWS / Azure</span>
-                        <span class="service-tag">Terraform & IaC</span>
-                        <span class="service-tag">Monitoring & SRE</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-        <div class="container">
-            <h2>Selected work</h2>
-            <p class="section-subtitle">
-                A snapshot of the type of products and infrastructure we design, build and operate.
-            </p>
-
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-media">
-                        <!-- Trading-style dashboard -->
-                        <img src="https://images.pexels.com/photos/6802043/pexels-photo-6802043.jpeg"
-                             alt="Multi-screen trading setup with charts and order flow views">
-                        <div class="project-pill">Trading analytics</div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Real-time trading cockpit</h3>
-                        <p>
-                            Cloud-native dashboard aggregating order-flow, liquidity zones and
-                            risk metrics into one place for day traders.
-                        </p>
-                        <div class="project-meta">
-                            GCP • Kubernetes • WebSockets • Custom charting
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-media">
-                        <!-- Team operations / internal tools -->
-                        <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg"
-                             alt="Team collaborating around an internal operations dashboard">
-                        <div class="project-pill">Operations</div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Ops control center</h3>
-                        <p>
-                            Internal tool that connects multiple data sources into a single pane
-                            of glass for support and operations teams.
-                        </p>
-                        <div class="project-meta">
-                            Role-based access • Audit logs • Alerting
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-media">
-                        <!-- Cloud / monitoring -->
-                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg"
-                             alt="Cloud infrastructure dashboard with metrics and alerts">
-                        <div class="project-pill">Cloud & AI</div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Predictive cloud insights</h3>
-                        <p>
-                            AI-assisted monitoring that surfaces anomalies and cost drifts
-                            before they become outages.
-                        </p>
-                        <div class="project-meta">
-                            ML models • Observability • Cost optimization
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section-alt">
-        <div class="container contact-grid">
-            <div class="contact-info">
-                <h2>Tell us what you’re building.</h2>
-                <p>
-                    Share a few lines about your product, timeline and tech stack. If we’re a good fit,
-                    we’ll reply with a short, concrete plan – not a generic PDF.
-                </p>
-                <p class="contact-meta">
-                    Typical engagements start from <strong>architecture sprints</strong> and can grow
-                    into long-term partnerships.
-                </p>
-            </div>
-
-            <form id="contact-form">
-                <div class="field">
-                    <label for="name">Full name</label>
-                    <input id="name" type="text" name="name" placeholder="Your name" required>
-                </div>
-                <div class="field">
-                    <label for="email">Work email</label>
-                    <input id="email" type="email" name="email" placeholder="you@company.com" required>
-                </div>
-                <div class="field">
-                    <label for="company">Company (optional)</label>
-                    <input id="company" type="text" name="company" placeholder="Startup, studio or team name">
-                </div>
-                <div class="field">
-                    <label for="message">What do you want to build?</label>
-                    <textarea id="message" name="message" rows="4" placeholder="A couple of sentences are enough." required></textarea>
-                    <small>Feel free to mention existing stack, deadlines or constraints.</small>
-                </div>
-
-                <button type="submit" class="cta-button">
-                    Send message
-                    <span class="arrow">↗</span>
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-inner">
-            <div>© 2025 InnovateHub. All rights reserved.</div>
-            <div>Built with care for teams that actually ship.</div>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId.length > 1) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-
-        // Basic form handler
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert("Thanks for reaching out! We’ll get back to you shortly.");
-                contactForm.reset();
-            });
-        }
-    </script>
-</body>
-</html>
+                    <div style="
