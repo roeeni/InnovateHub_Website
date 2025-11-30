@@ -3,312 +3,816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateHub | Driving Digital Transformation</title>
-    <!-- Import a modern font from Google Fonts -->
-    <link href="fonts.googleapis.com" rel="stylesheet">
-    
-    <!-- CSS styles embedded directly -->
+    <title>InnovateHub | Cloud, AI & Product Studio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Basic reset and use of Heebo font */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0a58ca;
+            --bg: #050816;
+            --bg-soft: #0b1120;
+            --card-bg: #0f172a;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --accent: #22c55e;
+        }
+
         body {
             font-family: 'Heebo', sans-serif;
             line-height: 1.6;
-            background: #f4f4f9;
-            color: #333;
-            direction: ltr; /* Left-to-Right for English */
-            text-align: left;
+            background: radial-gradient(circle at top, #1d2433 0, #020617 40%, #000 100%);
+            color: var(--text-main);
         }
 
         .container {
-            width: 85%;
-            max-width: 1100px;
-            margin: auto;
-            overflow: auto;
+            width: 88%;
+            max-width: 1120px;
+            margin: 0 auto;
         }
 
-        /* Buttons and Links */
-        .cta-button {
-            display: inline-block;
-            background: #007BFF;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 5px;
+        a {
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .cta-button:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        /* Navigation Bar */
+        /* Navbar */
         .navbar {
-            background: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
 
-        .navbar .container {
+        .navbar-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #333;
+            letter-spacing: 0.06em;
+        }
+
+        .logo span {
+            color: var(--primary);
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-        }
-
-        .nav-links li a {
-            color: #333;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links li a:hover {
-            color: #007BFF;
-        }
-
-        /* Hero Section - Image Background */
-        .hero-section {
-            /* Example image URL from Unsplash - replace with your own professional image */
-            background: url('images.unsplash.com') no-repeat center center/cover;
-            color: #fff;
-            padding: 10rem 0;
-            text-align: center;
-            position: relative;
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* Overlay to make text readable on image */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* General Sections */
-        .section-padded {
-            padding: 4rem 0;
-        }
-
-        .bg-light {
-            background: #e9ecef;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #007BFF;
-            border-bottom: 3px solid #007BFF;
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        /* Service Cards */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            position: relative;
+            padding-bottom: 0.2rem;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.25s ease-out;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* CTA button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            padding: 0.75rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, opacity 0.18s;
+        }
+
+        .cta-button span.arrow {
+            font-size: 1.2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 40px rgba(37, 99, 235, 0.6);
+            opacity: 0.95;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 3rem;
+            align-items: center;
+            padding: 4.5rem 0 4rem;
+        }
+
+        .hero-copy-eyebrow {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.7rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #f97316);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            max-width: 32rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .badge {
+            font-size: 0.78rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .hero-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .hero-meta strong {
+            color: var(--accent);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            height: 100%;
+            max-height: 430px;
+            filter: saturate(1.2);
+        }
+
+        .hero-tag {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            background: rgba(15, 23, 42, 0.88);
+            padding: 0.7rem 0.9rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+        }
+
+        .hero-tag-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Sections generic */
+        section {
+            padding: 3.5rem 0;
+        }
+
+        section h2 {
+            font-size: 1.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        section .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2.2rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 0.97rem;
+            color: var(--text-muted);
+            margin-bottom: 0.9rem;
+        }
+
+        .about-highlight {
+            padding: 1rem;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            font-size: 0.88rem;
+            margin-top: 0.6rem;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .about-list li {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 0.4rem;
+        }
+
+        /* Services */
+        .section-alt {
+            background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.6rem;
         }
 
         .service-card {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(15, 23, 42, 0.96);
+            border-radius: 16px;
+            padding: 1.5rem 1.4rem;
+            border: 1px solid rgba(30, 64, 175, 0.6);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+            transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+            border-color: var(--accent);
         }
 
-        /* Projects/Testimonials section styling */
-        .testimonial-card {
-            background: #0056b3;
-            color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 2rem;
+        .service-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: radial-gradient(circle at top left, #38bdf8, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.9rem;
+            font-size: 1.2rem;
         }
 
-        /* Contact Form */
-        form input, form textarea {
+        .service-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+
+        .service-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.45rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.96);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(30, 64, 175, 0.6);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-media {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-media img {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: inherit;
+            display: block;
+            transition: transform 0.35s ease-out;
+        }
+
+        .project-card:hover .project-media img {
+            transform: scale(1.05);
+        }
+
+        .project-pill {
+            position: absolute;
+            left: 0.9rem;
+            bottom: 0.9rem;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+        }
+
+        .project-body {
+            padding: 1rem 1.1rem 1.1rem;
+        }
+
+        .project-body h3 {
             font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .project-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 2.2rem;
+            align-items: start;
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .contact-meta strong {
+            color: var(--accent);
+        }
+
+        form {
+            background: rgba(15, 23, 42, 0.96);
+            border-radius: 16px;
+            padding: 1.4rem 1.4rem 1.2rem;
+            border: 1px solid rgba(30, 64, 175, 0.6);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+        }
+
+        form .field {
+            margin-bottom: 0.9rem;
+        }
+
+        form label {
+            display: block;
+            font-size: 0.78rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-muted);
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 0.6rem 0.7rem;
+            border-radius: 10px;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.6);
+        }
+
+        form small {
+            font-size: 0.7rem;
+            color: var(--text-muted);
         }
 
         /* Footer */
         footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
+            border-top: 1px solid rgba(30, 64, 175, 0.6);
+            padding: 1.6rem 0 1.8rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 3rem;
+            }
+
+            .hero-image-wrapper {
+                order: -1;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
+    <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">InnovateHub</div>
+        <div class="container navbar-inner">
+            <div class="logo">
+                Innovate<span>Hub</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li> <!-- New Link -->
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Studio</a></li>
+                <li><a href="#services">Capabilities</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact">Let’s talk</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>Welcome to InnovateHub</h1>
-            <p>Driving digital transformation through cutting-edge technology and brilliant minds.</p>
-            <a href="#contact" class="cta-button">Let's Innovate</a>
+    <!-- HERO -->
+    <header id="home" class="container hero">
+        <div>
+            <div class="hero-copy-eyebrow">Cloud, AI & product studio</div>
+            <h1>
+                We turn complex ideas<br>
+                into <span>real products</span>.
+            </h1>
+            <p class="hero-subtitle">
+                InnovateHub helps founders and teams ship secure, scalable products on the cloud –
+                from first prototype to production, with measurable business impact.
+            </p>
+
+            <div class="hero-badges">
+                <div class="badge">Cloud-native architectures</div>
+                <div class="badge">AI-powered automation</div>
+                <div class="badge">From idea to MVP in weeks</div>
+            </div>
+
+            <a href="#contact" class="cta-button">
+                Start a project
+                <span class="arrow">→</span>
+            </a>
+
+            <p class="hero-meta" style="margin-top:0.7rem;">
+                <strong>Preferred by teams</strong> who care about reliability, security and fast delivery.
+            </p>
+        </div>
+
+        <div class="hero-image-wrapper">
+            <!-- החלף לתמונה שלך / מ-Freepik / צילום מסך של מוצר -->
+            <img
+                src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"
+                alt="Developers collaborating over dashboards and cloud infrastructure"
+                class="hero-image"
+            >
+            <div class="hero-tag">
+                <div class="hero-tag-dot"></div>
+                <div>
+                    <div style="font-size:0.78rem;">Live environments monitored</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">
+                        24/7 observability • Cloud-native • Production ready
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="section-padded">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>InnovateHub is a leader in full-stack technological solutions. We combine strategic consulting with rapid development cycles to deliver market-ready products. Our mission is to empower businesses with the tools needed to thrive in a data-driven world. Quality and innovation are at our core.</p>
-            <p>Our team comprises expert developers, data scientists, and strategists dedicated to delivering pixel-perfect UI and streamlined processes for maximum efficiency.</p>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2>Built by engineers, not buzzwords.</h2>
+                <p>
+                    InnovateHub is a compact, senior-led studio that lives in the intersection of
+                    cloud infrastructure, AI and product design. We help companies ship things that
+                    actually work – fast, secure and maintainable.
+                </p>
+                <p>
+                    From trading tools and internal dashboards to customer-facing SaaS, we design, build
+                    and operate digital products that can handle real-world load and real business risk.
+                </p>
+                <div class="about-highlight">
+                    You bring the problem, we bring architecture, execution and ownership – all the way
+                    from idea to production.
+                </div>
+            </div>
+
+            <div>
+                <ul class="about-list">
+                    <li>• 10+ years in cloud & infrastructure.</li>
+                    <li>• Deep experience with GCP, Terraform, Kubernetes & security.</li>
+                    <li>• Product thinking: UX, performance and reliability from day one.</li>
+                    <li>• Hands-on support, not just slide decks.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-padded bg-light">
+    <!-- SERVICES -->
+    <section id="services" class="section-alt">
         <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-grid">
+            <h2>What we ship</h2>
+            <p class="section-subtitle">
+                High-impact work across the full stack – from infrastructure to interfaces.
+            </p>
+
+            <div class="services-grid">
                 <div class="service-card">
-                    <h3>Web Development</h3>
-                    <p>Building modern, responsive websites and complex web applications using the latest frameworks.</p>
+                    <div class="service-icon">🌐</div>
+                    <h3>Web & product development</h3>
+                    <p>
+                        Design and build responsive web apps, internal tools and client dashboards
+                        that feel fast and stay stable under load.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">React / Next.js</span>
+                        <span class="service-tag">APIs & integrations</span>
+                        <span class="service-tag">Design systems</span>
+                    </div>
                 </div>
+
                 <div class="service-card">
-                    <h3>Mobile Apps</h3>
-                    <p>Enterprise-grade mobile solutions for iOS and Android, focusing on user experience and stability.</p>
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile experiences</h3>
+                    <p>
+                        Native-feel mobile apps and PWA experiences that fit into your users’ day,
+                        not fight against it.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">iOS / Android</span>
+                        <span class="service-tag">Cross-platform</span>
+                        <span class="service-tag">Analytics ready</span>
+                    </div>
                 </div>
+
                 <div class="service-card">
-                    <h3>Artificial Intelligence</h3>
-                    <p>Integrating machine learning and AI algorithms to optimize operations and extract valuable insights from data.</p>
+                    <div class="service-icon">🤖</div>
+                    <h3>AI & automation</h3>
+                    <p>
+                        Use AI where it actually helps: smart workflows, internal copilots and data-driven
+                        decisions instead of manual busywork.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">ML & LLMs</span>
+                        <span class="service-tag">Data pipelines</span>
+                        <span class="service-tag">Decision support</span>
+                    </div>
                 </div>
+
                 <div class="service-card">
-                    <h3>Cloud Consulting</h3>
-                    <p>Seamless migration and management of infrastructure on AWS, Azure, and Google Cloud platforms.</p>
+                    <div class="service-icon">☁️</div>
+                    <h3>Cloud & reliability</h3>
+                    <p>
+                        Architect, migrate and operate on GCP, AWS or Azure with security, observability
+                        and cost in mind from day one.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">GCP / AWS / Azure</span>
+                        <span class="service-tag">Terraform & IaC</span>
+                        <span class="service-tag">Monitoring & SRE</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- New Section: Projects/Testimonials -->
-    <section id="projects" class="section-padded">
+    <!-- PROJECTS -->
+    <section id="projects">
         <div class="container">
-            <h2>Client Success Stories</h2>
-            <div class="testimonial-card">
-                <p>"InnovateHub transformed our operations. Their AI solutions increased our efficiency by 40%. A truly professional experience!"</p>
-                <p>— **Roeeni**, CEO of Global Logistics Inc.</p>
+            <h2>Selected work</h2>
+            <p class="section-subtitle">
+                A snapshot of the type of products and infrastructure we design, build and operate.
+            </p>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-media">
+                        <!-- החלף לצילום מסך אמיתי של פרויקט / דשבורד -->
+                        <img src="https://images.pexels.com/photos/15538564/pexels-photo-15538564.jpeg"
+                             alt="Trading analytics dashboard with live market data">
+                        <div class="project-pill">Trading analytics</div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Real-time trading cockpit</h3>
+                        <p>
+                            Cloud-native dashboard aggregating order-flow, liquidity zones and
+                            risk metrics into one place for day traders.
+                        </p>
+                        <div class="project-meta">
+                            GCP • Kubernetes • WebSockets • Custom charting
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg"
+                             alt="Team collaborating around an internal operations dashboard">
+                        <div class="project-pill">Operations</div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Ops control center</h3>
+                        <p>
+                            Internal tool that connects multiple data sources into a single pane
+                            of glass for support teams.
+                        </p>
+                        <div class="project-meta">
+                            Role-based access • Audit logs • Alerting
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg"
+                             alt="Cloud dashboard showing infrastructure status">
+                        <div class="project-pill">Cloud & AI</div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Predictive cloud insights</h3>
+                        <p>
+                            AI-assisted monitoring that surfaces anomalies and cost drifts
+                            before they become outages.
+                        </p>
+                        <div class="project-meta">
+                            ML models • Observability • Cost optimization
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-padded bg-light">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>We'd love to hear from you! Reach out to discuss your next big idea.</p>
+    <!-- CONTACT -->
+    <section id="contact" class="section-alt">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2>Tell us what you’re building.</h2>
+                <p>
+                    Share a few lines about your product, timeline and tech stack. If we’re a good fit,
+                    we’ll reply with a short, concrete plan – not a generic PDF.
+                </p>
+                <p class="contact-meta">
+                    Typical engagements start from <strong>architecture sprints</strong> and can grow
+                    into long-term partnerships.
+                </p>
+            </div>
+
             <form id="contact-form">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="cta-button">Send Message</button>
+                <div class="field">
+                    <label for="name">Full name</label>
+                    <input id="name" type="text" name="name" placeholder="Your name" required>
+                </div>
+                <div class="field">
+                    <label for="email">Work email</label>
+                    <input id="email" type="email" name="email" placeholder="you@company.com" required>
+                </div>
+                <div class="field">
+                    <label for="company">Company (optional)</label>
+                    <input id="company" type="text" name="company" placeholder="Startup, studio or team name">
+                </div>
+                <div class="field">
+                    <label for="message">What do you want to build?</label>
+                    <textarea id="message" name="message" rows="4" placeholder="A couple of sentences are enough." required></textarea>
+                    <small>Feel free to mention existing stack, deadlines or constraints.</small>
+                </div>
+
+                <button type="submit" class="cta-button">
+                    Send message
+                    <span class="arrow">↗</span>
+                </button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 InnovateHub. All rights reserved.</p>
+        <div class="container footer-inner">
+            <div>© 2025 InnovateHub. All rights reserved.</div>
+            <div>Built with care for teams that actually ship.</div>
         </div>
     </footer>
 
-    <!-- JavaScript embedded directly -->
     <script>
-        // Smooth scrolling for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                if (targetId.length > 1) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
 
-        // Basic form handling
+        // Basic form handler
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                console.log("Form submitted successfully!");
-                alert("Thank you for reaching out! We will get back to you shortly.");
-                this.reset();
+                alert("Thanks for reaching out! We’ll get back to you shortly.");
+                contactForm.reset();
             });
         }
     </script>
